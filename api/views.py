@@ -5,6 +5,11 @@ from rest_framework.response import Response
 from rest_framework.request import Request
 from rest_framework.views import APIView
 
+from rest_framework_simplejwt.views import TokenObtainPairView
+from .serializers import EmailTokenObtainPairSerializer
+class EmailTokenObtainPairView(TokenObtainPairView):
+    serializer_class = EmailTokenObtainPairSerializer
+
 # Create your views here.
 class BlogPostListCreate(generics.ListCreateAPIView):
     queryset = BlogPost.objects.all()
